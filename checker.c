@@ -4,6 +4,7 @@
 int Temp_Range(float );
 int State_Range(float );
 int Charge_Range(float );
+int LogicalAND(float,float);
 
 #define RANGE_OK 1
 #define RANGE_NOT_OK 0
@@ -13,8 +14,8 @@ int TR,SR,CR,Battery_status=0;
     TR = Temp_Range(temperature);
     SR = State_Range(soc);
     CR = Charge_Range(chargeRate);
-    Battery_status = TR && SR ;
-    Battery_status = Battery_status && CR;
+    Battery_status = LogicalAND(TR , SR) ;
+    Battery_status = LogicalAND(Battery_status , CR);
     if ( Battery_status){
     return RANGE_OK;
     }
@@ -43,6 +44,10 @@ int Charge_Range(float chargeRate)
     return RANGE_NOT_OK;
     }
     return RANGE_OK;
+}
+int LogicalAND(float a,float b)
+{
+    return (a && b);
 }
 int main() {
   assert(batteryIsOk(25, 70, 0.7));
