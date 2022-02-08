@@ -43,6 +43,6 @@ int Charge_Range(float chargeRate)
     return RANGE_OK;
 }
 int main() {
-  assert(batteryIsOk(25, 70, 0.7));
+  //assert(batteryIsOk(25, 70, 0.7));
   assert(!batteryIsOk(50, 85, 0));
 }
