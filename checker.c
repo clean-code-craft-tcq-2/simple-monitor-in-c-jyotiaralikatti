@@ -9,11 +9,12 @@ int Charge_Range(float );
 #define RANGE_NOT_OK 0
 
 int batteryIsOk(float temperature, float soc, float chargeRate) {  
-int TR,SR,CR;
+int TR,SR,CR,Battery_status=0;
     TR = Temp_Range(temperature);
     SR = State_Range(soc);
     CR = Charge_Range(chargeRate);
-    if ( TR  && CR){
+    Battery_status = TR && SR && CR;
+    if ( Battery_status){
     return RANGE_OK;
     }
   return RANGE_NOT_OK;
@@ -43,6 +44,6 @@ int Charge_Range(float chargeRate)
     return RANGE_OK;
 }
 int main() {
-  //assert(batteryIsOk(25, 70, 0.7));
+  assert(batteryIsOk(25, 70, 0.7));
   assert(!batteryIsOk(50, 85, 0));
 }
