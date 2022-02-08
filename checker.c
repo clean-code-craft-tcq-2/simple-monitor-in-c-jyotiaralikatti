@@ -13,10 +13,9 @@ int TR,SR,CR;
     TR = Temp_Range(temperature);
     SR = State_Range(soc);
     CR = Charge_Range(chargeRate);
-    if ( TR && SR && CR)
+    if ( TR && SR && CR){
     return RANGE_OK;
-    
-    //printf("%d %d %d \n",  Temp_Range(temperature) , State_Range(soc) , Charge_Range(chargeRate));
+    }
   return RANGE_NOT_OK;
 }
 int Temp_Range(float temperature)
