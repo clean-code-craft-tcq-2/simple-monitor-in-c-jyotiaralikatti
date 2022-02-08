@@ -11,9 +11,9 @@ int Charge_Range(float );
 int batteryIsOk(float temperature, float soc, float chargeRate) {  
 int TR,SR,CR;
     TR = Temp_Range(temperature);
-    SR = State_Range(soc);
+    //SR = State_Range(soc);
     CR = Charge_Range(chargeRate);
-    if ( TR && SR && CR){
+    if ( TR  && CR){
     return RANGE_OK;
     }
   return RANGE_NOT_OK;
