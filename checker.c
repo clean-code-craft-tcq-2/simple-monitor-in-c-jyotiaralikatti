@@ -13,7 +13,8 @@ int TR,SR,CR,Battery_status=0;
     TR = Temp_Range(temperature);
     SR = State_Range(soc);
     CR = Charge_Range(chargeRate);
-    Battery_status = TR && SR && CR;
+    Battery_status = TR && SR ;
+    Battery_status = Battery_status && CR;
     if ( Battery_status){
     return RANGE_OK;
     }
