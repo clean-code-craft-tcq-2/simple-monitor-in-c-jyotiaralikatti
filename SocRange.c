@@ -1,5 +1,6 @@
 #include <stdbool.h>
 #include "BMS.h"
+#include <stdio.h>
 
 bool IsSOCValid(float soc)
 {
@@ -11,6 +12,7 @@ bool IsSOCValid(float soc)
 }
 
 bool State_Range(float soc)
+{
   bool SOCResult = false;
  
   SOCResult = IsSOCValid(soc);
