@@ -1,4 +1,4 @@
-#include <stdio.h>
+
 #include <assert.h>
 #include <stdbool.h>
 
@@ -6,9 +6,6 @@ bool Temp_Range(float );
 bool State_Range(float );
 bool Charge_Rate(float );
 bool LogicalAND(float,float);
-
-#define RANGE_OK 1
-#define RANGE_NOT_OK 0
 
 bool batteryIsOk(float temperature, float soc, float chargeRate,bool(*Temp_RangeFtr)(float),bool(*State_RangeFtr)(float),bool(*Charge_RateFtr)(float)) {  
 bool TemperatureResult,SocResult,ChargerateResult,Battery_status=0;
@@ -35,10 +32,10 @@ bool CheckForEarlyWarning(int BatteryParameter, float BatteryParameterValue)
 }
 
 int main() {
-  assert(batteryIsOk(25, 70, 0.7));
-  assert(!batteryIsOk(50, 85, 0));
+  assert(batteryIsOk(25, 70, 0.7,&Temp_Range,&State_Range ,&Charge_Rate));
+  assert(!batteryIsOk(50, 85, 0,&Temp_Range,&State_Range ,&Charge_Rate));
   
-    assert(!batteryIsOk(30, 85, 0.1));
-  assert(!batteryIsOk(25, 70, 0.9));
+    assert(!batteryIsOk(30, 85, 0.1,&Temp_Range,&State_Range ,&Charge_Rate));
+  assert(!batteryIsOk(25, 70, 0.9,&Temp_Range,&State_Range ,&Charge_Rate));
 }
 
