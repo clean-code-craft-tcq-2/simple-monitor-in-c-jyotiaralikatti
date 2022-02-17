@@ -1,4 +1,5 @@
   #include <stdbool.h>
+  #include <stdio.h>
  #include "BMS.h"
   
   bool IsChargeRateValid(float chargeRate)
