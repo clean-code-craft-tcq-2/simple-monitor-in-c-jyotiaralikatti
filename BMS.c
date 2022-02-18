@@ -9,7 +9,7 @@ bool Charge_Rate(float );
 bool LogicalAND(float,float);
 
 bool batteryIsOk(float temperature, float soc, float chargeRate,bool(*Temp_RangeFtr)(float),bool(*State_RangeFtr)(float),bool(*Charge_RateFtr)(float)) {  
-bool TemperatureResult,SocResult,ChargerateResult,Battery_status=0;
+bool TemperatureResult,SocResult,ChargerateResult;
     TemperatureResult = Temp_RangeFtr(temperature);
     SocResult = State_RangeFtr(soc);
     ChargerateResult = Charge_RateFtr(chargeRate);
