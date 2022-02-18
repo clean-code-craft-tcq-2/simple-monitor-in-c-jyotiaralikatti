@@ -20,6 +20,8 @@
 
 #define TOLERANCE_PERCENTILE 5
 
+#define UNUSED(x) (void)(x)
+
 bool IsSOCValid(float );
 bool State_Range(float );
 
