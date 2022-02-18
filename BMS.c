@@ -1,6 +1,7 @@
 
 #include <assert.h>
 #include <stdbool.h>
+#include "BMS.h"
 
 bool Temp_Range(float );
 bool State_Range(float );
@@ -21,7 +22,7 @@ bool TemperatureResult,SocResult,ChargerateResult,Battery_status=0;
 bool CheckForEarlyWarning(int BatteryParameter, float BatteryParameterValue)
 {
   int EarlyWarning = false;
-  
+  UNUSED(BatteryParameterValue);
   /*EarlyWarning = IsToleranceLowerLimitApproached(BatteryParameter);
   if(!EarlyWarning)
   {
